@@ -4,124 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francesco Fontana | Frank16super Portfolio</title>
+    
+    <link rel="icon" type="image/png" href="flogo.png">
+    
     <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">Frank<span class="highlight">16</span>super</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Chi Sono</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#repository">Repository</a></li>
-                <li><a href="#contact">Contatti</a></li>
-            </ul>
-        </nav>
-        <button id="theme-toggle" class="btn-theme">
-            <i class="fas fa-sun"></i>
-        </button>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="flogo.png" alt="Frank16super Logo" class="nav-logo">
+            <span class="logo-text">Frank16super</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Chi Sono</a></li>
+            <li><a href="#skills">Competenze</a></li>
+            <li><a href="#projects">Repository & Progetti</a></li>
+            <li><a href="#contact">Contatti</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h3>Ciao, sono</h3>
+            <h1 class="glitch" data-text="Francesco Fontana">Francesco Fontana</h1>
+            <h2 class="subtitle">IT Specialist & Developer</h2>
+            <p>Appassionato di Informatica, Hardware e Problem Solving.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">I Miei Progetti</a>
+                <a href="https://github.com/Frank16super/frank16super" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub Profile</a>
+            </div>
+        </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Francesco Fontana</h1>
-            <h2 class="typing-text">Appassionato di <span class="dynamic-text"></span></h2>
-            <p>IT Specialist | Hardware & Software | Graphic Design</p>
-            <div class="cta-buttons">
-                <a href="#repository" class="btn btn-primary">I Miei Progetti</a>
-                <a href="#contact" class="btn btn-secondary">Contattami</a>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Chi Sono</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Sono un professionista qualificato nel settore dell'informatica con conoscenze approfondite in software e hardware.
+                        Mi occupo di risolvere problemi complessi e gestire progetti IT[cite: 7]. 
+                        Attualmente studio <strong>Informatica per le Imprese Digitali</strong> presso l'Università Telematica Pegaso[cite: 20].
+                    </p>
+                    <p>
+                        La mia passione è il mio lavoro. Sono appassionato di calcolatori elettronici (PC, Smartphone, NVR/DVR) 
+                        e ho maturato esperienza nella configurazione di sistemi di videosorveglianza, NAS e assemblaggio PC[cite: 45, 48, 49].
+                    </p>
+                </div>
             </div>
         </div>
-        
-        <div class="light-orb light-red"></div>
-        <div class="light-orb light-green"></div>
     </section>
 
-    <section id="about" class="container reveal">
-        <h2 class="section-title">Chi <span class="text-purple">Sono</span></h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>
-                    Ciao! Sono un professionista qualificato nel settore dell'informatica con una forte passione per le tecnologie IT. 
-                    Attualmente studio <strong>Informatica per le Imprese Digitali</strong> presso l'Università Pegaso.
-                </p>
-                <p>
-                    Mi occupo di <strong>assemblaggio PC, configurazione NAS, e sistemi di videosorveglianza</strong>. 
-                    Non mi arrendo facilmente di fronte ai problemi: li affronto con curiosità e determinazione.
-                </p>
-            </div>
-            <div class="about-cards">
-                <div class="card">
-                    <i class="fas fa-microchip icon-green"></i>
+    <section id="skills" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Competenze Tecniche</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Sviluppo</h3>
+                    <p>Java, Python, JavaScript, HTML/CSS [cite: 29, 32, 35]</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Sistemi & OS</h3>
+                    <p>Windows, Linux, MacOS, Configurazione NAS [cite: 15, 50]</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>Reti Wireless/Cablate, Firewall, Videosorveglianza [cite: 48, 61]</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tools"></i>
                     <h3>Hardware</h3>
-                    <p>Assemblaggio e Manutenzione</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-code icon-purple"></i>
-                    <h3>Software</h3>
-                    <p>Sviluppo & OS Config</p>
+                    <p>Assemblaggio PC, Diagnostica, Manutenzione [cite: 49]</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="container reveal">
-        <h2 class="section-title">Le Mie <span class="text-red">Competenze</span></h2>
-        <div class="skills-wrapper">
-            <div class="skill-category">
-                <h3><i class="fas fa-terminal"></i> Linguaggi & Web</h3>
-                <div class="skill-bar">
-                    <span>Java / OOP</span>
-                    <div class="progress"><div class="bar" style="width: 80%; background: var(--neon-purple);"></div></div>
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Repository & Download</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                Tutti i miei progetti e file pubblici sono archiviati su GitHub.
+            </p>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="card-image">
+                        <i class="fab fa-github fa-5x"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Frank16super Repo</h3>
+                        <p>Il mio repository principale per archiviazione file e progetti personali.</p>
+                        <a href="https://github.com/Frank16super/frank16super" target="_blank" class="btn btn-small">Vai alla Repo <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="skill-bar">
-                    <span>Python</span>
-                    <div class="progress"><div class="bar" style="width: 75%; background: var(--neon-green);"></div></div>
+
+                <div class="project-card">
+                    <div class="card-image">
+                        <i class="fas fa-laptop-code fa-5x"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Sito Web Personale</h3>
+                        <p>Il codice sorgente di questo sito portfolio.</p>
+                        <a href="https://github.com/Frank16super/frank16super" target="_blank" class="btn btn-small">Download <i class="fas fa-download"></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-category">
-                <h3><i class="fas fa-server"></i> Sistemi & Network</h3>
-                <div class="skill-bar">
-                    <span>Linux / Windows / MacOS</span>
-                    <div class="progress"><div class="bar" style="width: 90%; background: var(--neon-red);"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <span>Networking & NAS</span>
-                    <div class="progress"><div class="bar" style="width: 80%; background: var(--neon-purple);"></div></div>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="repository" class="container reveal">
-        <h2 class="section-title">Archivio & <span class="text-green">Download</span></h2>
-        <div class="repo-card">
-            <i class="fab fa-github fa-3x"></i>
-            <h3>GitHub Repository: Frank16super</h3>
-            <p>Accedi al mio archivio completo per visualizzare progetti e scaricare risorse.</p>
-            <a href="https://github.com/Frank16super/frank16super" target="_blank" class="btn btn-primary glow-effect">
-                <i class="fas fa-download"></i> Vai alla Repository
-            </a>
-        </div>
-    </section>
-
-    <section id="contact" class="container reveal">
-        <h2 class="section-title">Contattami</h2>
-        <div class="contact-box">
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2>Contattami</h2>
+            <p>Hai un progetto in mente o hai bisogno di assistenza hardware/software?</p>
             <a href="mailto:francescofontana03@gmail.com" class="email-link">francescofontana03@gmail.com</a>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+            
+            <div class="socials">
                 <a href="https://github.com/Frank16super" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+                </div>
+            
+            <p class="copyright">
+                &copy; <span id="year"></span> Francesco Fontana (Frank16super). Tutti i diritti riservati.
+            </p>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Francesco Fontana (Frank16super).</p>
     </footer>
 
     <script src="script.js"></script>
