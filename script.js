@@ -24,23 +24,6 @@ const typeEffect = () => {
         setTimeout(typeEffect, 1200);
     }
 }
-typeEffect();
-
-// --- Theme Switcher ---
-const themeBtn = document.getElementById("theme-toggle");
-const body = document.body;
-const icon = themeBtn.querySelector("i");
-
-themeBtn.addEventListener("click", () => {
-    body.classList.toggle("light-mode");
-    if (body.classList.contains("light-mode")) {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-    } else {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    }
-});
 
 // --- Scroll Reveal ---
 const reveals = document.querySelectorAll(".reveal");
