@@ -12,15 +12,12 @@ const typeEffect = () => {
     dynamicText.classList.add("stop-blinking");
 
     if (!isDeleting && charIndex < currentWord.length) {
-        // Scrive
         charIndex++;
         setTimeout(typeEffect, 100);
     } else if (isDeleting && charIndex > 0) {
-        // Cancella
         charIndex--;
         setTimeout(typeEffect, 50);
     } else {
-        // Cambio parola
         isDeleting = !isDeleting;
         dynamicText.classList.remove("stop-blinking");
         wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
@@ -29,15 +26,13 @@ const typeEffect = () => {
 }
 typeEffect();
 
-// --- Theme Switcher (Dark/Light) ---
+// --- Theme Switcher ---
 const themeBtn = document.getElementById("theme-toggle");
 const body = document.body;
 const icon = themeBtn.querySelector("i");
 
 themeBtn.addEventListener("click", () => {
     body.classList.toggle("light-mode");
-    
-    // Cambio Icona
     if (body.classList.contains("light-mode")) {
         icon.classList.remove("fa-sun");
         icon.classList.add("fa-moon");
@@ -47,13 +42,11 @@ themeBtn.addEventListener("click", () => {
     }
 });
 
-// --- Scroll Reveal Animation ---
+// --- Scroll Reveal ---
 const reveals = document.querySelectorAll(".reveal");
-
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
     const elementVisible = 150;
-
     reveals.forEach((reveal) => {
         const elementTop = reveal.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
@@ -61,5 +54,4 @@ const revealOnScroll = () => {
         }
     });
 };
-
 window.addEventListener("scroll", revealOnScroll);
