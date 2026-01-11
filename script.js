@@ -1,40 +1,49 @@
-// --- Typing Effect per la Hero Section ---
-const dynamicText = document.querySelector(".dynamic-text");
-const words = ["Informatica", "Cyber Security", "Networking", "Problem Solving"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. Menu Mobile Toggle ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-const typeEffect = () => {
-    const currentWord = words[wordIndex];
-    const currentChar = currentWord.substring(0, charIndex);
-    dynamicText.textContent = currentChar;
-    dynamicText.classList.add("stop-blinking");
-
-    if (!isDeleting && charIndex < currentWord.length) {
-        charIndex++;
-        setTimeout(typeEffect, 100);
-    } else if (isDeleting && charIndex > 0) {
-        charIndex--;
-        setTimeout(typeEffect, 50);
-    } else {
-        isDeleting = !isDeleting;
-        dynamicText.classList.remove("stop-blinking");
-        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
-        setTimeout(typeEffect, 1200);
-    }
-}
-
-// --- Scroll Reveal ---
-const reveals = document.querySelectorAll(".reveal");
-const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const elementVisible = 150;
-    reveals.forEach((reveal) => {
-        const elementTop = reveal.getBoundingClientRect().top;
-        if (elementTop < windowHeight - elementVisible) {
-            reveal.classList.add("active");
-        }
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-};
-window.addEventListener("scroll", revealOnScroll);
+
+    // Chiude il menu quando clicchi su un link
+    document.querySelectorAll('.nav-links li a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // --- 2. Anno automatico nel Footer ---
+    const yearSpan = document.getElementById('year');
+    yearSpan.textContent = new Date().getFullYear();
+
+    // --- 3. Animazione Scroll Reveal (Elementi che appaiono scorrendo) ---
+    const revealElements = document.querySelectorAll('.skill-card, .project-card, .about-text');
+
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 150;
+
+        revealElements.forEach((element) => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight - elementVisible) {
+                element.style.opacity = "1";
+                element.style.transform = "translateY(0)";
+            }
+        });
+    };
+
+    // Impostazioni iniziali CSS per gli elementi da animare
+    revealElements.forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(50px)";
+        el.style.transition = "all 0.6s ease-out";
+    });
+
+    window.addEventListener('scroll', revealOnScroll);
+    
+    // Triggera una volta all'avvio
+    revealOnScroll();
+});
