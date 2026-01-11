@@ -1,17 +1,17 @@
 /* --- Variabili Colori & Setup --- */
 :root {
-    /* Palette Colori Richiesta */
-    --neon-red: #ff2a2a;
+    /* Nuova Palette */
+    --neon-red: #ff0000;
+    --dark-red: #8b0000;      /* Rosso Scuro per il gradiente */
     --neon-green: #00ff41;
     --neon-purple: #bd00ff;
-    --electric-blue: #18046e;
     
     /* Dark Theme (Default) */
-    --bg-color: #0a0a0a;
-    --card-bg: #161616;
+    --bg-color: #050505;      /* Sfondo leggermente più scuro */
+    --card-bg: #111111;
     --text-color: #e0e0e0;
     --text-muted: #a0a0a0;
-    --nav-bg: rgba(10, 10, 10, 0.95);
+    --nav-bg: rgba(5, 5, 5, 0.9);
     
     /* Font */
     --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,7 +19,7 @@
 
 /* --- Light Theme Override --- */
 body.light-mode {
-    --bg-color: #f0f2f5;
+    --bg-color: #f4f4f4;
     --card-bg: #ffffff;
     --text-color: #1a1a1a;
     --text-muted: #555;
@@ -56,7 +56,7 @@ header {
     background: var(--nav-bg);
     z-index: 1000;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo {
@@ -64,13 +64,10 @@ header {
     font-weight: bold;
     letter-spacing: 1px;
 }
-.highlight { color: var(--electric-blue); }
+.highlight { color: var(--neon-red); } /* Highlight ora rosso */
 
 nav ul { display: flex; gap: 20px; }
-nav a {
-    font-weight: 500;
-    transition: 0.3s;
-}
+nav a { font-weight: 500; transition: 0.3s; }
 nav a:hover { color: var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple); }
 
 .btn-theme {
@@ -94,18 +91,20 @@ nav a:hover { color: var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple)
     overflow: hidden;
 }
 
+/* NUOVO GRADIENTE NOME: Viola -> Rosso Scuro */
 .hero h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(to right, var(--neon-red), var(--electric-blue));
+    background: linear-gradient(135deg, var(--neon-purple), var(--dark-red));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 20px rgba(139, 0, 0, 0.3); /* Leggero alone rosso scuro */
 }
 
 .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
 .hero p { color: var(--text-muted); margin-bottom: 2rem; }
 
-/* Pulsanti */
+/* Pulsanti Aggiornati */
 .btn {
     padding: 0.8rem 2rem;
     border-radius: 30px;
@@ -115,48 +114,78 @@ nav a:hover { color: var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple)
     margin: 0 10px;
 }
 
+/* Bottone primario ora Viola */
 .btn-primary {
-    background: var(--electric-blue);
-    color: #000;
-    box-shadow: 0 0 15px var(--electric-blue);
+    background: var(--neon-purple);
+    color: #fff;
+    box-shadow: 0 0 15px var(--neon-purple);
 }
+/* Bottone secondario con bordo Rosso */
 .btn-secondary {
-    border: 2px solid var(--neon-purple);
-    color: var(--neon-purple);
+    border: 2px solid var(--neon-red);
+    color: var(--neon-red);
 }
 
 .btn:hover { transform: translateY(-3px); }
-.btn-primary:hover { box-shadow: 0 0 25px var(--electric-blue); }
-.btn-secondary:hover { background: var(--neon-purple); color: #fff; box-shadow: 0 0 15px var(--neon-purple); }
+.btn-primary:hover { box-shadow: 0 0 25px var(--neon-purple); }
+.btn-secondary:hover { background: var(--neon-red); color: #fff; box-shadow: 0 0 15px var(--neon-red); }
 
-/* Animazione Sfondo (Cerchi colorati) */
-.circle {
+/* --- ANIMAZIONE LUCI DI SFONDO (AGGIORNATO) --- */
+.light-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
+    filter: blur(90px);
+    opacity: 0.5;
     z-index: -1;
 }
-.circle-1 {
-    width: 300px;
-    height: 300px;
+
+/* Luce Rossa che cambia colore e si muove */
+.light-red {
+    width: 350px;
+    height: 350px;
     background: var(--neon-red);
-    top: 10%;
-    left: 10%;
-    animation: float 6s infinite alternate;
-}
-.circle-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--neon-green);
-    bottom: 10%;
-    right: 10%;
-    animation: float 8s infinite alternate-reverse;
+    top: 15%;
+    left: 15%;
+    animation: moveAndColorRed 10s infinite alternate;
 }
 
-@keyframes float {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(30px, 50px); }
+/* Luce Verde che cambia colore e si muove */
+.light-green {
+    width: 450px;
+    height: 450px;
+    background: var(--neon-green);
+    bottom: 15%;
+    right: 15%;
+    animation: moveAndColorGreen 14s infinite alternate;
+}
+
+/* Keyframes per il movimento e cambio colore */
+@keyframes moveAndColorRed {
+    0% {
+        transform: translate(0, 0) scale(1);
+        background: var(--neon-red); /* Rosso */
+    }
+    50% {
+        background: #ff0055; /* Rosso rosato */
+    }
+    100% {
+        transform: translate(40px, 60px) scale(1.1);
+        background: #8b0000; /* Rosso Scuro */
+    }
+}
+
+@keyframes moveAndColorGreen {
+    0% {
+        transform: translate(0, 0) scale(1);
+        background: var(--neon-green); /* Verde */
+    }
+    50% {
+        background: #00ff88; /* Verde acqua */
+    }
+    100% {
+        transform: translate(-50px, -30px) scale(1.2);
+        background: #adff2f; /* Verde Lime */
+    }
 }
 
 /* --- Sections Common --- */
@@ -170,9 +199,9 @@ nav a:hover { color: var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple)
 
 .text-purple { color: var(--neon-purple); }
 .text-red { color: var(--neon-red); }
-.text-blue { color: var(--electric-blue); }
+.text-green { color: var(--neon-green); }
 
-/* --- About Grid --- */
+/* --- About & Skills --- */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -188,17 +217,15 @@ nav a:hover { color: var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple)
     margin-bottom: 1rem;
     transition: 0.3s;
 }
-.card:hover { transform: translateY(-5px); border-color: var(--electric-blue); }
+.card:hover { transform: translateY(-5px); border-color: var(--neon-purple); }
 .icon-green { color: var(--neon-green); font-size: 2rem; margin-bottom: 1rem; }
-.icon-blue { color: var(--electric-blue); font-size: 2rem; margin-bottom: 1rem; }
+.icon-purple { color: var(--neon-purple); font-size: 2rem; margin-bottom: 1rem; }
 
-/* --- Skills --- */
 .skills-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
 }
-.skill-category h3 { margin-bottom: 1.5rem; color: var(--text-color); }
 .skill-bar { margin-bottom: 1.5rem; }
 .skill-bar span { display: block; margin-bottom: 0.5rem; font-weight: bold; }
 .progress {
@@ -212,37 +239,27 @@ nav a:hover { color: var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple)
 
 /* --- Repository Section --- */
 .repo-card {
-    background: linear-gradient(145deg, var(--card-bg), #1a1a1a);
+    background: linear-gradient(145deg, var(--card-bg), #1a0000); /* Sfondo leggermente rossastro scuro */
     padding: 3rem;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid var(--neon-purple);
-    box-shadow: 0 0 20px rgba(189, 0, 255, 0.2);
+    border: 1px solid var(--neon-red);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
 }
 .repo-card i.fab { color: var(--text-color); margin-bottom: 1rem; }
 .repo-card p { margin: 1.5rem 0; color: var(--text-muted); }
 .glow-effect { animation: pulse 2s infinite; }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(20, 0, 107, 0.808); }
-    70% { box-shadow: 0 0 0 15px rgba(0, 243, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(189, 0, 255, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(189, 0, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(189, 0, 255, 0); }
 }
 
-/* --- Contact & Footer --- */
-.contact-box { text-align: center; }
-.email-link {
-    display: block;
-    font-size: 1.5rem;
-    color: var(--neon-green);
-    margin: 1.5rem 0;
-}
-.social-icons a {
-    font-size: 2rem;
-    margin: 0 15px;
-    color: var(--text-color);
-}
-.social-icons a:hover { color: var(--electric-blue); }
+/* --- Footer & Contact --- */
+.email-link { display: block; font-size: 1.5rem; color: var(--neon-red); margin: 1.5rem 0; }
+.social-icons a { font-size: 2rem; margin: 0 15px; color: var(--text-color); }
+.social-icons a:hover { color: var(--neon-purple); }
 
 footer {
     text-align: center;
@@ -253,17 +270,12 @@ footer {
 }
 
 /* --- Scroll Animations --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* --- Mobile Responsive --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
+    .hero h1 { font-size: 3rem; }
     .about-grid { grid-template-columns: 1fr; }
     header { padding: 1rem; }
-    nav ul { display: none; } /* Per semplicità, in un portfolio base */
+    nav ul { display: none; }
 }
